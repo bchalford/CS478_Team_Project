@@ -22,19 +22,17 @@ public class Glop : MonoBehaviour
     public void Push(Vector2 force)
     {
         rb.AddForce(force, ForceMode2D.Impulse);
-
     }
 
     public void ActivateRb()
     {
         rb.isKinematic = false;
-
     }
     public void DeactivateRb()
        
     {
         rb.velocity = Vector3.zero;
-        rb.angularVelocity = 0f;
+        rb.angularVelocity = 02;
         rb.isKinematic = true;
     }
 }

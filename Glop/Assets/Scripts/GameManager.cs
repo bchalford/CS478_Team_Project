@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float pushForce = 4f;
 
     bool isDragging = false;
+    bool ifDragged = false;
 
     Vector2 startPoint;
     Vector2 endPoint;
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-       if (Input.GetMouseButtonDown (0))
+        if (Input.GetMouseButtonDown(0))
         {
             isDragging = true;
             OnDragStart();
@@ -58,21 +59,22 @@ public class GameManager : MonoBehaviour
     }
 
     //Drag
-
+    
     void OnDragStart()
     {
-        glop.DeactivateRb();
-        startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+            
+            glop.DeactivateRb();
+            startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        trajectory.Show();
+            trajectory.Show();
+        
     }
-     void OnDrag()
+    void OnDrag()
     {
         endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
         distance = Vector2.Distance(startPoint, endPoint);
         direction = (startPoint - endPoint).normalized;
         force = direction * distance * pushForce;
-
 
         //just for debug
         Debug.DrawLine(startPoint, endPoint);
