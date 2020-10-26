@@ -1225,6 +1225,7 @@ MonoBehaviour:
   glop: {fileID: 121983573}
   trajectory: {fileID: 137070878}
   pushForce: 2
+  maxDistance: 10
 --- !u!4 &1904510157
 Transform:
   m_ObjectHideFlags: 0

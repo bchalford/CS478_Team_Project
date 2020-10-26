@@ -39,16 +39,18 @@ public class GameManager : MonoBehaviour
 
     }
 
+    bool isAlreadyTouched = false;
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!isAlreadyTouched && Input.GetMouseButtonDown(0))
         {
             isDragging = true;
             OnDragStart();
         }
+
         if (Input.GetMouseButtonUp(0))
         {
-            isDragging = false;
+            isAlreadyTouched = true;
             OnDragEnd();
         }
 
@@ -58,8 +60,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     //Drag
-    
+
     void OnDragStart()
     {
             
@@ -69,12 +72,23 @@ public class GameManager : MonoBehaviour
             trajectory.Show();
         
     }
+
+    //user input
+    //glop jump limitation
+
+    public float maxDistance = 10f;
+
     void OnDrag()
     {
         endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
         distance = Vector2.Distance(startPoint, endPoint);
-        direction = (startPoint - endPoint).normalized;
-        force = direction * distance * pushForce;
+        
+
+        if (distance <= maxDistance)
+        {
+            direction = (startPoint - endPoint).normalized;
+            force = direction * distance * pushForce;
+        }
 
         //just for debug
         Debug.DrawLine(startPoint, endPoint);
