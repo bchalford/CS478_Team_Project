@@ -6,6 +6,7 @@ public class Sticky : MonoBehaviour
 {
     public Rigidbody2D glopBody;
     bool isSticking;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,6 @@ public class Sticky : MonoBehaviour
             Debug.Log("CollisionEntered");
             isSticking = true;
             StartCoroutine(Constrain(collision.gameObject));
-           
         }
     }
 
@@ -34,28 +34,28 @@ public class Sticky : MonoBehaviour
         isSticking = false;
     }
 
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        Debug.Log("CollisionStay");
-        if (collision.transform.tag != "Player")
-        {
-            //body.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            //rigidbody2D.v = new Vector2 (0, 0);
-            //print ("Stay");
-        }
-    }
 
     IEnumerator Constrain (GameObject glop)
     {
         glopBody.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
-
-        yield return new WaitForSeconds(1);
-
-        glopBody.constraints = RigidbodyConstraints2D.None;
+        while (true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                isSticking = false;
+                glopBody.constraints = RigidbodyConstraints2D.None;
+                yield break;
+            }
+            yield return null;
+        }
     }
-
-        // Update is called once per frame
-        void Update()
+    public bool IsSticking
+    {
+        get;
+        set;
+    }
+    // Update is called once per frame
+    void Update()
     {
 
     }

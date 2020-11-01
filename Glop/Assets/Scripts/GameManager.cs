@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     Camera cam;
 
+    
     public Glop glop;
     public Trajectory trajectory;
     [SerializeField] float pushForce = 4f;
@@ -34,14 +35,14 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        cam = Camera.main;
+        
         glop.DeactivateRb();
-
     }
 
     bool isAlreadyTouched = false;
     void Update()
     {
+        
         if (!isAlreadyTouched && Input.GetMouseButtonDown(0))
         {
             isDragging = true;
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     void OnDrag()
     {
+        cam = Camera.main;
         endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
         distance = Vector2.Distance(startPoint, endPoint);
         
@@ -99,7 +101,7 @@ public class GameManager : MonoBehaviour
     {
         //push glop
         glop.ActivateRb();
-
+        
         glop.Push(force);
 
         trajectory.Hide();
