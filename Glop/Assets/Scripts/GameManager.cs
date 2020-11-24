@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour
 
     void OnDragStart()
     {
-            
             glop.DeactivateRb();
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
 
