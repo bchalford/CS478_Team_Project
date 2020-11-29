@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Camera
     - MainMenu
     - OutOfBounds
     - RestartMenu
@@ -245,6 +246,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13226}
     - Class: 114
+      Script: {instanceID: 13436}
+    - Class: 114
       Script: {instanceID: 13652}
     - Class: 114
       Script: {instanceID: 14368}
@@ -411,7 +414,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15110}
     - Class: 114
-      Script: {instanceID: 30814}
+      Script: {instanceID: 29496}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -488,7 +491,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15110}
     - Class: 114
-      Script: {instanceID: 31268}
+      Script: {instanceID: 29950}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1141,4 +1144,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Death Screen Level1.unity
   - Assets/Scenes/Death Screen Level2.unity
   - Assets/Scenes/Death Screen Level3.unity
-  playerPath: D:/TeamProj2/CS478_Team_Project/Glop/Glop.exe
+  playerPath: D:/TeamProj2/CS478_Team_Project/Glop/Glop(3).exe
